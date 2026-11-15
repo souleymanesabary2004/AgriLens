@@ -1,0 +1,13 @@
+{
+  "threshold": 0.12,
+  "rule": "plus haut seuil sur dev avec >=90% repondu, recall@3 >=90% et >=90% des hors-sujet refuses",
+  "test": {
+    "threshold": 0.12,
+    "n_in": 10,
+    "n_out": 5,
+    "recall_at_1": 0.8,
+    "recall_at_3": 0.9,
+    "answered_in_scope": 1.0,
+    "refused_out_of_scope": 1.0
+  }
+}

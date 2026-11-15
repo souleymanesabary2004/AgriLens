@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.pyc
+
+# Environnements
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+Untitled.ipynb
+
+# Données brutes
+01_data/raw/
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+~$*
+*.tmp
+
+
+# MLflow
+10_mlops/mlflow.db
+10_mlops/mlruns/
+
+# Modèles PyTorch
+*.pt
+
+
+# Donnees calculees (lourdes, recalculables par les scripts)
+01_data/processed/*.parquet
+
+# MLflow local (racine)
+mlflow.db
+mlruns/
+
+# Sauvegardes techniques
+01_data/metadata/*_backup_*.csv
+
+# Secrets
+.env
+*.env00_project_management/reference_documents/
+
+00_project_management/reference_documents/
+src/agrilens.egg-info/
+src/agrilens.egg-info/
+*versioning data lake layers with DVC*

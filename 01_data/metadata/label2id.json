@@ -1,0 +1,19 @@
+{
+    "cacao__black_pod_rot": 0,
+    "cacao__healthy": 1,
+    "cacao__pod_borer": 2,
+    "corn__cercospora_leaf_spot_gray_leaf_spot": 3,
+    "corn__common_rust": 4,
+    "corn__healthy": 5,
+    "corn__northern_leaf_blight": 6,
+    "tomato__bacterial_spot": 7,
+    "tomato__early_blight": 8,
+    "tomato__healthy": 9,
+    "tomato__late_blight": 10,
+    "tomato__leaf_mold": 11,
+    "tomato__septoria_leaf_spot": 12,
+    "tomato__spider_mites_two_spotted_spider_mite": 13,
+    "tomato__target_spot": 14,
+    "tomato__tomato_mosaic_virus": 15,
+    "tomato__tomato_yellow_leaf_curl_virus": 16
+}

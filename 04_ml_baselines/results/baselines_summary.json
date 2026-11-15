@@ -1,0 +1,72 @@
+{
+  "source_shortcut_accuracy": 0.9992424242424243,
+  "manifest_sha256": "98b75a4d5b9d5ff9e50f459c4ef3466602a3f8c7bc0151e32ea7342e8f12eef0",
+  "git_commit": "5085f504668409593eebfa23337902d57d0fcaaf",
+  "split_evalue": "validation",
+  "resultats": [
+    {
+      "modele": "logreg_features",
+      "macro_f1": 0.8341,
+      "balanced_accuracy": 0.8576,
+      "accuracy": 0.8784,
+      "f1_par_source": {
+        "PlantVillage": 0.9127,
+        "cacao_diseases": 0.4742
+      },
+      "f1_par_culture": {
+        "Cacao": 0.4742,
+        "Corn_(maize)": 0.9489,
+        "Tomato": 0.903
+      },
+      "temps_s": 3.9
+    },
+    {
+      "modele": "rf_depthNone_leaf1",
+      "macro_f1": 0.8498,
+      "balanced_accuracy": 0.8421,
+      "accuracy": 0.9258,
+      "f1_par_source": {
+        "PlantVillage": 0.9439,
+        "cacao_diseases": 0.4108
+      },
+      "f1_par_culture": {
+        "Cacao": 0.4108,
+        "Corn_(maize)": 0.9465,
+        "Tomato": 0.9445
+      },
+      "temps_s": 17.2
+    },
+    {
+      "modele": "rf_depth20_leaf2",
+      "macro_f1": 0.8486,
+      "balanced_accuracy": 0.8422,
+      "accuracy": 0.9227,
+      "f1_par_source": {
+        "PlantVillage": 0.9378,
+        "cacao_diseases": 0.4326
+      },
+      "f1_par_culture": {
+        "Cacao": 0.4326,
+        "Corn_(maize)": 0.9374,
+        "Tomato": 0.9397
+      },
+      "temps_s": 18.1
+    },
+    {
+      "modele": "rf_depthNone_leaf5",
+      "macro_f1": 0.8589,
+      "balanced_accuracy": 0.8573,
+      "accuracy": 0.9258,
+      "f1_par_source": {
+        "PlantVillage": 0.9421,
+        "cacao_diseases": 0.4708
+      },
+      "f1_par_culture": {
+        "Cacao": 0.4708,
+        "Corn_(maize)": 0.9515,
+        "Tomato": 0.9404
+      },
+      "temps_s": 17.3
+    }
+  ]
+}

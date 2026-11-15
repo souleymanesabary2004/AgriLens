@@ -1,0 +1,6 @@
+modele,macro_f1,balanced_accuracy,accuracy,f1_PlantVillage,f1_cacao,note
+logreg_features,0.8341,0.8576,0.8784,0.9127,0.4742,features a la main (75)
+rf_depthNone_leaf1,0.8498,0.8421,0.9258,0.9439,0.4108,features a la main (75)
+rf_depth20_leaf2,0.8486,0.8422,0.9227,0.9378,0.4326,features a la main (75)
+rf_depthNone_leaf5,0.8589,0.8573,0.9258,0.9421,0.4708,features a la main (75)
+mobilenetv2_frozen_head,0.9214,0.9215,0.9462,0.9377,0.8453,embeddings MobileNetV2 (1280)

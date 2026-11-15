@@ -1,0 +1,20 @@
+{
+  "metrics": {
+    "macro_f1": 0.9213735828913348,
+    "balanced_accuracy": 0.9215074987619353,
+    "accuracy": 0.9462121212121212
+  },
+  "by_source": {
+    "PlantVillage": 0.9377,
+    "cacao_diseases": 0.8453
+  },
+  "by_culture": {
+    "Cacao": 0.8453,
+    "Corn_(maize)": 0.9416,
+    "Tomato": 0.9368
+  },
+  "best_epoch": 19,
+  "manifest_sha256": "98b75a4d5b9d5ff9e50f459c4ef3466602a3f8c7bc0151e32ea7342e8f12eef0",
+  "git_commit": "5085f504668409593eebfa23337902d57d0fcaaf",
+  "split_evalue": "validation"
+}

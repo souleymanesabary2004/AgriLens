@@ -1,0 +1,23 @@
+{
+  "split": "test",
+  "n": 2640,
+  "threshold": 0.9,
+  "metrics_no_abstention": {
+    "macro_f1": 0.9327185969723387,
+    "balanced_accuracy": 0.9331511487143773,
+    "accuracy": 0.9484848484848485
+  },
+  "coverage": 0.9037878787878788,
+  "accuracy_accepted": 0.980720871751886,
+  "macro_f1_accepted": 0.9727374288336152,
+  "images_sent_to_human": 254,
+  "errors_total": 136,
+  "errors_avoided": 90,
+  "macro_f1_by_source": {
+    "PlantVillage": 0.9521,
+    "cacao_diseases": 0.8425
+  },
+  "model_sha256": "f6472edfd0f54f5cd90e87b51883058cc8e1092c0d4116f1734747ba66a07aae",
+  "manifest_sha256": "98b75a4d5b9d5ff9e50f459c4ef3466602a3f8c7bc0151e32ea7342e8f12eef0",
+  "date": "2026-11-14 22:27"
+}

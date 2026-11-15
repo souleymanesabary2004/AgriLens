@@ -1,0 +1,11 @@
+{
+  "threshold": 0.9,
+  "target_accuracy": 0.98,
+  "min_coverage": 0.8,
+  "target_reached": true,
+  "chosen_on": "validation",
+  "validation_coverage": 0.8928030303030303,
+  "validation_accuracy_accepted": 0.9817564700890963,
+  "model_sha256": "f6472edfd0f54f5cd90e87b51883058cc8e1092c0d4116f1734747ba66a07aae",
+  "manifest_sha256": "98b75a4d5b9d5ff9e50f459c4ef3466602a3f8c7bc0151e32ea7342e8f12eef0"
+}

@@ -1,0 +1,18 @@
+class_id,label,classe,culture,display_fr,n_images
+0,cacao__black_pod_rot,black_pod_rot,Cacao,Cacao - Pourriture noire des cabosses,943
+1,cacao__healthy,healthy,Cacao,Cacao - Sain,3344
+2,cacao__pod_borer,pod_borer,Cacao,Cacao - Foreur des cabosses,103
+3,corn__cercospora_leaf_spot_gray_leaf_spot,Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot,Corn_(maize),Maïs - Tache grise des feuilles,513
+4,corn__common_rust,Corn_(maize)___Common_rust_,Corn_(maize),Maïs - Rouille commune,1192
+5,corn__healthy,Corn_(maize)___healthy,Corn_(maize),Maïs - Sain,1162
+6,corn__northern_leaf_blight,Corn_(maize)___Northern_Leaf_Blight,Corn_(maize),Maïs - Brûlure nordique des feuilles,985
+7,tomato__bacterial_spot,Tomato___Bacterial_spot,Tomato,Tomate - Tache bactérienne,2127
+8,tomato__early_blight,Tomato___Early_blight,Tomato,Tomate - Alternariose précoce,1000
+9,tomato__healthy,Tomato___healthy,Tomato,Tomate - Saine,1589
+10,tomato__late_blight,Tomato___Late_blight,Tomato,Tomate - Mildiou tardif,1906
+11,tomato__leaf_mold,Tomato___Leaf_Mold,Tomato,Tomate - Moisissure foliaire,952
+12,tomato__septoria_leaf_spot,Tomato___Septoria_leaf_spot,Tomato,Tomate - Septoriose foliaire,1771
+13,tomato__spider_mites_two_spotted_spider_mite,Tomato___Spider_mites Two-spotted_spider_mite,Tomato,Tomate - Araignées rouges à deux points,1676
+14,tomato__target_spot,Tomato___Target_Spot,Tomato,Tomate - Tache cible,1404
+15,tomato__tomato_mosaic_virus,Tomato___Tomato_mosaic_virus,Tomato,Tomate - Virus de la mosaïque,373
+16,tomato__tomato_yellow_leaf_curl_virus,Tomato___Tomato_Yellow_Leaf_Curl_Virus,Tomato,Tomate - Virus de l'enroulement jaune des feuilles,5357
