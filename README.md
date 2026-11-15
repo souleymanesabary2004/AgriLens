@@ -1,39 +1,53 @@
 # AgriLens
 
 **Assistant de diagnostic des maladies de plantes à partir d'une photo** (tomate, maïs, cacao).
-Un projet de bout en bout : données auditées et versionnées, modèle comparé à des références, évaluation rigoureuse, abstention (renvoi des cas incertains vers un humain), API, interface et assistant documentaire sourcé.
+
+Projet de bout en bout : données auditées et versionnées, modèle comparé à des références, évaluation rigoureuse, abstention (renvoi des cas incertains vers un humain), API, interface et assistant documentaire sourcé.
 
 | | |
 |---|---|
 | **Statut** | Prototype local, évalué et documenté (étapes E1 à E4 terminées) |
 | **Classes** | 17 (14 PlantVillage + 3 cacao) |
 | **Données** | 26 397 images après audit qualité |
-| **Stack** | Python, PyTorch, scikit-learn, FastAPI, Streamlit, pytest, Git, DVC, MLflow, PySpark (benchmark) |
+| **Stack** | Python, PyTorch, scikit-learn, FastAPI, Streamlit, JupyterLab, DVC, MLflow, pytest (voir [Technologies](#2-technologies)) |
 | **Auteur** | Souleymane Soumahoro, élève ingénieur Data Science & IA, EFREI Paris (M1) |
 
 ## Sommaire
 
 1. [Principes du projet](#1-principes-du-projet)
-2. [Résultats](#2-résultats)
-3. [Données et pipeline](#3-données-et-pipeline)
-4. [Modèle et abstention](#4-modèle-et-abstention)
-5. [Service et assistant documentaire](#5-service-et-assistant-documentaire)
-6. [Périmètre et limites documentées](#6-périmètre-et-limites-documentées)
-7. [Feuille de route](#7-feuille-de-route)
-8. [Structure du dépôt](#8-structure-du-dépôt)
-9. [Reproduire](#9-reproduire)
-10. [Sources et licences](#10-sources-et-licences)
+2. [Technologies](#2-technologies)
+3. [Résultats](#3-résultats)
+4. [Données et pipeline](#4-données-et-pipeline)
+5. [Modèle et abstention](#5-modèle-et-abstention)
+6. [Service et assistant documentaire](#6-service-et-assistant-documentaire)
+7. [Périmètre et limites documentées](#7-périmètre-et-limites-documentées)
+8. [Feuille de route](#8-feuille-de-route)
+9. [Structure du dépôt](#9-structure-du-dépôt)
+10. [Reproduire](#10-reproduire)
+11. [Autres projets](#11-autres-projets)
+12. [Sources et licences](#12-sources-et-licences)
 
 ## 1. Principes du projet
 
 - **La donnée d'abord.** Chaque image est inventoriée, contrôlée et rattachée à un découpage reproductible avant tout entraînement.
-- **Des mesures comparées.** Le modèle final est situé par rapport à des références (modèle naïf, régression logistique, Random Forest).
-- **Une évaluation sans fuite.** Le jeu de test n'est mesuré qu'une fois. Les doublons entre découpages sont détectés puis corrigés.
+- **Des mesures comparées.** Le modèle final est situé par rapport à des références : modèle naïf, régression logistique, Random Forest.
+- **Une évaluation sans fuite.** Le jeu de test n'est mesuré qu'une fois. Les doublons entre découpages sont détectés, puis corrigés.
 - **Savoir s'abstenir.** Le système répond seulement quand sa confiance dépasse un seuil choisi sur la validation. Les autres cas sont renvoyés à un humain.
 - **Aucune réponse sans source.** L'assistant cite ses sources et refuse les questions hors périmètre ou de dosage.
-- **Des limites écrites.** Chaque limite connue est documentée (voir la [fiche modèle](15_docs/model_card.md)).
+- **Des limites écrites.** Chaque limite connue est documentée dans la [fiche modèle](15_docs/model_card.md).
 
-## 2. Résultats
+## 2. Technologies
+
+| Domaine | Outils |
+|---|---|
+| Langage et analyse | Python 3.11, JupyterLab et notebooks, pandas |
+| Données et stockage | PyArrow (Parquet, architecture Medallion), PySpark (benchmark), DVC |
+| Modèle | PyTorch (MobileNetV2), scikit-learn (régression logistique, Random Forest) |
+| Assistant documentaire | Recherche TF-IDF avec citations et refus (partie recherche d'une approche RAG, sans génération) |
+| Service | FastAPI (API), Streamlit (interface) |
+| Qualité et suivi | pytest, Git (tags d'étape), MLflow |
+
+## 3. Résultats
 
 ### Modèles (macro-F1 sur la validation)
 
@@ -54,7 +68,7 @@ Un projet de bout en bout : données auditées et versionnées, modèle comparé
 | F1 PlantVillage | 0,952 |
 | F1 cacao | 0,843 |
 
-### Abstention (seuil de confiance 0,90, test)
+### Abstention (seuil de confiance 0,90, sur le test)
 
 | Mesure | Valeur |
 |---|---:|
@@ -71,7 +85,7 @@ Un projet de bout en bout : données auditées et versionnées, modèle comparé
 | recall@3 | 90 % |
 | Refus des questions hors périmètre | 5 sur 5 |
 
-## 3. Données et pipeline
+## 4. Données et pipeline
 
 | Étape | Réalisation |
 |---|---|
@@ -84,13 +98,13 @@ Un projet de bout en bout : données auditées et versionnées, modèle comparé
 | Versionnement | Git avec tags d'étape, DVC pour les données (`01_data/lake.dvc`), MLflow pour les expériences |
 | Benchmark | Pandas 0,0126 s contre PySpark 8,35 s (démarrage de la session : 15 s) sur 26 000 lignes. À cette taille, Pandas est le bon outil. |
 
-## 4. Modèle et abstention
+## 5. Modèle et abstention
 
 - **Modèle :** MobileNetV2 pré-entraîné sur ImageNet, gelé, avec une tête linéaire 1280 → 17 (21 777 paramètres entraînés). Choix adapté à l'absence de GPU.
 - **Métrique principale :** macro-F1, adaptée aux classes déséquilibrées (de 103 à 5 357 images par classe).
 - **Abstention :** seuil de 0,90 sur la confiance maximale, choisi sur la validation comme le plus petit seuil atteignant une précision d'au moins 98 % avec une couverture d'au moins 80 %. Le jeu de test n'intervient pas dans ce choix.
 
-## 5. Service et assistant documentaire
+## 6. Service et assistant documentaire
 
 **API (FastAPI)**
 
@@ -109,7 +123,7 @@ Les entrées sont validées (type de fichier, taille maximale de 10 MiB, 50 mill
 
 **Qualité logicielle.** 48 tests automatisés (API, inférence, recherche documentaire), exécutés avec pytest.
 
-## 6. Périmètre et limites documentées
+## 7. Périmètre et limites documentées
 
 | Sujet | Constat |
 |---|---|
@@ -123,7 +137,7 @@ Les entrées sont validées (type de fichier, taille maximale de 10 MiB, 50 mill
 
 Détails et justifications : [`15_docs/model_card.md`](15_docs/model_card.md).
 
-## 7. Feuille de route
+## 8. Feuille de route
 
 | Priorité | Évolution |
 |---|---|
@@ -135,7 +149,7 @@ Détails et justifications : [`15_docs/model_card.md`](15_docs/model_card.md).
 
 Les fichiers `docker-compose.yml` et `environment.yml` sont des ébauches, non validées à ce jour.
 
-## 8. Structure du dépôt
+## 9. Structure du dépôt
 
 ```
 01_data/            métadonnées, manifestes, correspondance des classes, pointeur DVC
@@ -152,7 +166,7 @@ scripts/            entraînement, évaluation, contrôles
 src/agrilens/       bibliothèque (données, caractéristiques, métriques, inférence, recherche)
 ```
 
-## 9. Reproduire
+## 10. Reproduire
 
 Les images (26 397) et les poids du modèle **ne sont pas versionnés dans ce dépôt** : les données sont suivies par DVC et aucun stockage distant n'est configuré à ce jour. Le dépôt seul ne permet donc pas de réentraîner le modèle.
 
@@ -163,6 +177,14 @@ python -m pytest -q
 python scripts/check_class_mapping.py
 ```
 
-## 10. Sources et licences
+## 11. Autres projets
+
+| Projet | Contenu |
+|---|---|
+| [phm-copilot](https://github.com/souleymanesabary2004/phm-copilot) | Maintenance prédictive sur NASA C-MAPSS (GRU PyTorch), copilote IA avec outils, citations vérifiées, refus sans preuve et validation humaine ; 29 tests, GitHub Actions et GitLab CI |
+| [movie-recommendation-system](https://github.com/souleymanesabary2004/movie-recommendation-system) | Système de recommandation avec Docker, MySQL et Spark |
+| [france-renewable-energy-dashboard](https://github.com/souleymanesabary2004/france-renewable-energy-dashboard) | Analyse et tableau de bord de la transition énergétique en France |
+
+## 12. Sources et licences
 
 Voir [`SOURCES.md`](SOURCES.md) : jeux d'images (PlantVillage et Cacao Diseases, sur Kaggle) et sources du corpus pour chaque maladie. Les licences des jeux d'images restent à vérifier avant toute redistribution.
