@@ -6,6 +6,7 @@ Endpoints :
   POST /predict  -> recoit une photo, renvoie classe, confiance et decision (accepte / a verifier)
   GET  /fiche    -> E4 : fiche sourcee de la classe predite (ou message fixe pour une classe saine)
   POST /ask      -> E4 : question en francais, renvoie des passages SOURCES du corpus (ou un refus)
+  /api/v1/...    -> E5 : catalogue de donnees et lineage (voir src/agrilens/catalog_api.py)
 
 Lancer depuis la racine du projet :
     uvicorn main:app --app-dir 08_api --port 8000
@@ -102,14 +103,20 @@ def load_real_retriever():
     return Retriever(corpus, threshold=load_threshold(ROOT / "07_rag_genai/rag_threshold.json"))
 
 
-def create_app(predictor=None, retriever="auto") -> FastAPI:
-    """Construit l'API. `predictor` / `retriever` permettent aux tests d'injecter des faux."""
+def create_app(predictor=None, retriever="auto", catalog_state="auto") -> FastAPI:
+    """Construit l'API. `predictor` / `retriever` / `catalog_state` permettent aux tests d'injecter des faux."""
 
     @asynccontextmanager
     async def lifespan(app: FastAPI):
         # Au demarrage : le modele est charge UNE fois et reste en memoire.
         app.state.predictor = predictor if predictor is not None else load_real_predictor()
         app.state.retriever = load_real_retriever() if retriever == "auto" else retriever
+        # E5 : catalogue et lineage (None si 11_catalog/catalog.json n'a pas encore ete genere)
+        if catalog_state == "auto":
+            from agrilens.catalog_api import load_state
+            app.state.catalog_state = load_state(ROOT / "11_catalog/catalog.json", ROOT / "11_catalog/lineage.json")
+        else:
+            app.state.catalog_state = catalog_state
         yield
 
     app = FastAPI(title="AgriLens API", version="0.1.0",
@@ -165,6 +172,10 @@ def create_app(predictor=None, retriever="auto") -> FastAPI:
         if len(body.question) > 500:
             raise HTTPException(422, "Question trop longue (500 caracteres maximum).")
         return await run_in_threadpool(r.search, body.question, max(1, min(body.top_k, 5)))
+
+    # E5 : routes /api/v1/catalog et /api/v1/lineage
+    from agrilens.catalog_api import router as catalog_router
+    app.include_router(catalog_router)
 
     return app
 

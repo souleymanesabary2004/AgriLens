@@ -1,0 +1,14 @@
+graph LR
+  class_split_summary["class_split_summary"]
+  embeddings_mobilenetv2_v1["embeddings_mobilenetv2_v1"]
+  images_brutes["images_brutes"]
+  inventory["inventory"]
+  inventory_clean["inventory_clean"]
+  mobilenetv2_frozen_head["mobilenetv2_frozen_head"]
+  split_manifest_v2["split_manifest_v2"]
+  images_brutes -.-> inventory
+  inventory -.-> inventory_clean
+  inventory_clean -.-> split_manifest_v2
+  split_manifest_v2 -.-> embeddings_mobilenetv2_v1
+  embeddings_mobilenetv2_v1 -.-> mobilenetv2_frozen_head
+  split_manifest_v2 --> class_split_summary

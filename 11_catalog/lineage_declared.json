@@ -1,0 +1,7 @@
+[
+  {"from": "images_brutes", "to": "inventory", "step": "inventaire des images (Bronze)", "evidence": "notebook inventaire"},
+  {"from": "inventory", "to": "inventory_clean", "step": "nettoyage, doublons MD5 (Silver)", "evidence": "notebook qualite"},
+  {"from": "inventory_clean", "to": "split_manifest_v2", "step": "split stratifie seed 2026", "evidence": "notebook split"},
+  {"from": "split_manifest_v2", "to": "embeddings_mobilenetv2_v1", "step": "scripts/extract_embeddings.py", "evidence": "script"},
+  {"from": "embeddings_mobilenetv2_v1", "to": "mobilenetv2_frozen_head", "step": "scripts/train_head.py", "evidence": "run MLflow 0a405821"}
+]

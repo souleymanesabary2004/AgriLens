@@ -1,0 +1,298 @@
+{
+  "_note": "Metadonnees FONCTIONNELLES ecrites a la main. Cle = chemin du fichier (prioritaire) ou nom sans extension. Les mentions A CONFIRMER sont a verifier par l'auteur.",
+  "01_data/lake/bronze/inventory.parquet": {
+    "description": "Couche Bronze : inventaire brut des images (26 402 lignes), sans nettoyage.",
+    "owner": "Souleymane Soumahoro",
+    "steward": "Souleymane Soumahoro",
+    "columns": {
+      "source": "Jeu d'origine de l'image : PlantVillage ou cacao_diseases.",
+      "classe": "Nom de la classe (maladie ou etat sain) tel qu'il figure dans le jeu source.",
+      "filename": "Nom du fichier image.",
+      "split": "Partition de l'image : train, val ou test (stratifiee, seed 2026).",
+      "filepath": "Chemin du fichier image sur la machine de l'auteur."
+    },
+    "layer": "bronze"
+  },
+  "01_data/lake/silver/inventory_clean.parquet": {
+    "description": "Couche Silver : inventaire nettoye (26 397 lignes apres retrait de 5 images) avec metadonnees d'image, empreintes et indicateurs de doublons.",
+    "owner": "Souleymane Soumahoro",
+    "steward": "Souleymane Soumahoro",
+    "columns": {
+      "source": "Jeu d'origine de l'image : PlantVillage ou cacao_diseases.",
+      "culture": "Culture photographiee : Tomato, Corn_maize ou Cacao.",
+      "split": "Partition de l'image : train, val ou test (stratifiee, seed 2026).",
+      "classe": "Nom de la classe (maladie ou etat sain) tel qu'il figure dans le jeu source.",
+      "filename": "Nom du fichier image.",
+      "filepath": "Chemin du fichier image sur la machine de l'auteur.",
+      "extension": "Extension du fichier image (jpg, png...).",
+      "format": "Format reel de l'image lu a l'ouverture (JPEG, PNG...).",
+      "width": "Largeur de l'image en pixels.",
+      "height": "Hauteur de l'image en pixels.",
+      "mode": "Mode couleur de l'image (ex. RGB).",
+      "channels": "Nombre de canaux de couleur.",
+      "problem": "Indicateur de probleme detecte sur l'image a l'inventaire (A CONFIRMER par l'auteur).",
+      "ratio": "Rapport largeur/hauteur de l'image (A CONFIRMER par l'auteur).",
+      "brightness_mean": "Luminosite moyenne de l'image.",
+      "exposure_status": "Statut d'exposition deduit de la luminosite (ex. sous-exposee).",
+      "md5_hash": "Empreinte MD5 du fichier, utilisee pour detecter les doublons exacts.",
+      "duplicate_exact": "Indique si l'image est un doublon exact (meme MD5) d'une autre.",
+      "leakage_risk": "Indique un risque de fuite : image identique presente dans plusieurs partitions.",
+      "phash": "Empreinte perceptuelle (pHash), utilisee pour reperer les quasi-doublons."
+    },
+    "layer": "silver"
+  },
+  "01_data/lake/gold/gold_dataset.parquet": {
+    "description": "Couche Gold : jeu final (26 397 lignes, 23 colonnes) = Silver + label, class_id et display_fr.",
+    "owner": "Souleymane Soumahoro",
+    "steward": "Souleymane Soumahoro",
+    "columns": {
+      "source": "Jeu d'origine de l'image : PlantVillage ou cacao_diseases.",
+      "culture": "Culture photographiee : Tomato, Corn_maize ou Cacao.",
+      "classe": "Nom de la classe (maladie ou etat sain) tel qu'il figure dans le jeu source.",
+      "filename": "Nom du fichier image.",
+      "filepath": "Chemin du fichier image sur la machine de l'auteur.",
+      "extension": "Extension du fichier image (jpg, png...).",
+      "format": "Format reel de l'image lu a l'ouverture (JPEG, PNG...).",
+      "width": "Largeur de l'image en pixels.",
+      "height": "Hauteur de l'image en pixels.",
+      "mode": "Mode couleur de l'image (ex. RGB).",
+      "channels": "Nombre de canaux de couleur.",
+      "problem": "Indicateur de probleme detecte sur l'image a l'inventaire (A CONFIRMER par l'auteur).",
+      "ratio": "Rapport largeur/hauteur de l'image (A CONFIRMER par l'auteur).",
+      "brightness_mean": "Luminosite moyenne de l'image.",
+      "exposure_status": "Statut d'exposition deduit de la luminosite (ex. sous-exposee).",
+      "md5_hash": "Empreinte MD5 du fichier, utilisee pour detecter les doublons exacts.",
+      "duplicate_exact": "Indique si l'image est un doublon exact (meme MD5) d'une autre.",
+      "leakage_risk": "Indique un risque de fuite : image identique presente dans plusieurs partitions.",
+      "phash": "Empreinte perceptuelle (pHash), utilisee pour reperer les quasi-doublons.",
+      "split": "Partition de l'image : train, val ou test (stratifiee, seed 2026).",
+      "label": "Identifiant technique de la classe (17 classes).",
+      "class_id": "Numero de la classe, de 0 a 16.",
+      "display_fr": "Libelle francais de la classe, affiche dans l'interface."
+    },
+    "layer": "gold"
+  },
+  "01_data/metadata/class_mapping.csv": {
+    "description": "Table de correspondance des 17 classes : identifiant, label, culture, libelle francais et effectif.",
+    "owner": "Souleymane Soumahoro",
+    "steward": "Souleymane Soumahoro",
+    "columns": {
+      "class_id": "Numero de la classe, de 0 a 16.",
+      "label": "Identifiant technique de la classe (17 classes).",
+      "classe": "Nom de la classe (maladie ou etat sain) tel qu'il figure dans le jeu source.",
+      "culture": "Culture photographiee : Tomato, Corn_maize ou Cacao.",
+      "display_fr": "Libelle francais de la classe, affiche dans l'interface."
+    }
+  },
+  "01_data/metadata/inventory.csv": {
+    "description": "Copie CSV de l'inventaire brut (5 colonnes).",
+    "owner": "Souleymane Soumahoro",
+    "steward": "Souleymane Soumahoro",
+    "columns": {
+      "source": "Jeu d'origine de l'image : PlantVillage ou cacao_diseases.",
+      "classe": "Nom de la classe (maladie ou etat sain) tel qu'il figure dans le jeu source.",
+      "filename": "Nom du fichier image.",
+      "split": "Partition de l'image : train, val ou test (stratifiee, seed 2026).",
+      "filepath": "Chemin du fichier image sur la machine de l'auteur."
+    }
+  },
+  "01_data/metadata/inventory_v2.csv": {
+    "description": "Version intermediaire de l'inventaire : ajoute les metadonnees d'image a l'inventaire brut.",
+    "owner": "Souleymane Soumahoro",
+    "steward": "Souleymane Soumahoro",
+    "columns": {
+      "source": "Jeu d'origine de l'image : PlantVillage ou cacao_diseases.",
+      "culture": "Culture photographiee : Tomato, Corn_maize ou Cacao.",
+      "split": "Partition de l'image : train, val ou test (stratifiee, seed 2026).",
+      "classe": "Nom de la classe (maladie ou etat sain) tel qu'il figure dans le jeu source.",
+      "filename": "Nom du fichier image.",
+      "filepath": "Chemin du fichier image sur la machine de l'auteur.",
+      "extension": "Extension du fichier image (jpg, png...).",
+      "format": "Format reel de l'image lu a l'ouverture (JPEG, PNG...).",
+      "width": "Largeur de l'image en pixels.",
+      "height": "Hauteur de l'image en pixels.",
+      "mode": "Mode couleur de l'image (ex. RGB).",
+      "channels": "Nombre de canaux de couleur.",
+      "problem": "Indicateur de probleme detecte sur l'image a l'inventaire (A CONFIRMER par l'auteur)."
+    }
+  },
+  "01_data/metadata/inventory_v3.csv": {
+    "description": "Version intermediaire de l'inventaire avec luminosite, empreintes et doublons ; meme structure que la couche Silver.",
+    "owner": "Souleymane Soumahoro",
+    "steward": "Souleymane Soumahoro",
+    "columns": {
+      "source": "Jeu d'origine de l'image : PlantVillage ou cacao_diseases.",
+      "culture": "Culture photographiee : Tomato, Corn_maize ou Cacao.",
+      "split": "Partition de l'image : train, val ou test (stratifiee, seed 2026).",
+      "classe": "Nom de la classe (maladie ou etat sain) tel qu'il figure dans le jeu source.",
+      "filename": "Nom du fichier image.",
+      "filepath": "Chemin du fichier image sur la machine de l'auteur.",
+      "extension": "Extension du fichier image (jpg, png...).",
+      "format": "Format reel de l'image lu a l'ouverture (JPEG, PNG...).",
+      "width": "Largeur de l'image en pixels.",
+      "height": "Hauteur de l'image en pixels.",
+      "mode": "Mode couleur de l'image (ex. RGB).",
+      "channels": "Nombre de canaux de couleur.",
+      "problem": "Indicateur de probleme detecte sur l'image a l'inventaire (A CONFIRMER par l'auteur).",
+      "ratio": "Rapport largeur/hauteur de l'image (A CONFIRMER par l'auteur).",
+      "brightness_mean": "Luminosite moyenne de l'image.",
+      "exposure_status": "Statut d'exposition deduit de la luminosite (ex. sous-exposee).",
+      "md5_hash": "Empreinte MD5 du fichier, utilisee pour detecter les doublons exacts.",
+      "duplicate_exact": "Indique si l'image est un doublon exact (meme MD5) d'une autre.",
+      "leakage_risk": "Indique un risque de fuite : image identique presente dans plusieurs partitions.",
+      "phash": "Empreinte perceptuelle (pHash), utilisee pour reperer les quasi-doublons."
+    }
+  },
+  "01_data/metadata/qplit_manifest.csv": {
+    "description": "Fichier intermediaire a 2 colonnes (filepath, split), nom avec faute de frappe : a archiver ou supprimer.",
+    "owner": "Souleymane Soumahoro",
+    "steward": "Souleymane Soumahoro",
+    "columns": {
+      "filepath": "Chemin du fichier image sur la machine de l'auteur.",
+      "split": "Partition de l'image : train, val ou test (stratifiee, seed 2026)."
+    }
+  },
+  "01_data/metadata/split_manifest.csv": {
+    "description": "Ancienne version du manifeste (filepath, split), remplacee par split_manifest_v2.",
+    "owner": "Souleymane Soumahoro",
+    "steward": "Souleymane Soumahoro",
+    "columns": {
+      "filepath": "Chemin du fichier image sur la machine de l'auteur.",
+      "split": "Partition de l'image : train, val ou test (stratifiee, seed 2026)."
+    }
+  },
+  "01_data/metadata/split_manifest_v2.csv": {
+    "description": "Manifeste de reference : jeu Gold + filepath_rel, avec le split stratifie (seed 2026) : 21 117 train / 2 640 val / 2 640 test.",
+    "owner": "Souleymane Soumahoro",
+    "steward": "Souleymane Soumahoro",
+    "columns": {
+      "source": "Jeu d'origine de l'image : PlantVillage ou cacao_diseases.",
+      "culture": "Culture photographiee : Tomato, Corn_maize ou Cacao.",
+      "classe": "Nom de la classe (maladie ou etat sain) tel qu'il figure dans le jeu source.",
+      "filename": "Nom du fichier image.",
+      "filepath": "Chemin du fichier image sur la machine de l'auteur.",
+      "extension": "Extension du fichier image (jpg, png...).",
+      "format": "Format reel de l'image lu a l'ouverture (JPEG, PNG...).",
+      "width": "Largeur de l'image en pixels.",
+      "height": "Hauteur de l'image en pixels.",
+      "mode": "Mode couleur de l'image (ex. RGB).",
+      "channels": "Nombre de canaux de couleur.",
+      "problem": "Indicateur de probleme detecte sur l'image a l'inventaire (A CONFIRMER par l'auteur).",
+      "ratio": "Rapport largeur/hauteur de l'image (A CONFIRMER par l'auteur).",
+      "brightness_mean": "Luminosite moyenne de l'image.",
+      "exposure_status": "Statut d'exposition deduit de la luminosite (ex. sous-exposee).",
+      "md5_hash": "Empreinte MD5 du fichier, utilisee pour detecter les doublons exacts.",
+      "duplicate_exact": "Indique si l'image est un doublon exact (meme MD5) d'une autre.",
+      "leakage_risk": "Indique un risque de fuite : image identique presente dans plusieurs partitions.",
+      "phash": "Empreinte perceptuelle (pHash), utilisee pour reperer les quasi-doublons.",
+      "split": "Partition de l'image : train, val ou test (stratifiee, seed 2026).",
+      "label": "Identifiant technique de la classe (17 classes).",
+      "class_id": "Numero de la classe, de 0 a 16.",
+      "display_fr": "Libelle francais de la classe, affiche dans l'interface.",
+      "filepath_rel": "Chemin relatif de l'image : cle de jointure avec les features et les embeddings."
+    },
+    "layer": "gold"
+  },
+  "01_data/metadata/split_manifest_v2_backup_avant_filepath_rel.csv": {
+    "description": "Sauvegarde du manifeste v2 avant l'ajout de la colonne filepath_rel.",
+    "owner": "Souleymane Soumahoro",
+    "steward": "Souleymane Soumahoro",
+    "columns": {
+      "source": "Jeu d'origine de l'image : PlantVillage ou cacao_diseases.",
+      "culture": "Culture photographiee : Tomato, Corn_maize ou Cacao.",
+      "classe": "Nom de la classe (maladie ou etat sain) tel qu'il figure dans le jeu source.",
+      "filename": "Nom du fichier image.",
+      "filepath": "Chemin du fichier image sur la machine de l'auteur.",
+      "extension": "Extension du fichier image (jpg, png...).",
+      "format": "Format reel de l'image lu a l'ouverture (JPEG, PNG...).",
+      "width": "Largeur de l'image en pixels.",
+      "height": "Hauteur de l'image en pixels.",
+      "mode": "Mode couleur de l'image (ex. RGB).",
+      "channels": "Nombre de canaux de couleur.",
+      "problem": "Indicateur de probleme detecte sur l'image a l'inventaire (A CONFIRMER par l'auteur).",
+      "ratio": "Rapport largeur/hauteur de l'image (A CONFIRMER par l'auteur).",
+      "brightness_mean": "Luminosite moyenne de l'image.",
+      "exposure_status": "Statut d'exposition deduit de la luminosite (ex. sous-exposee).",
+      "md5_hash": "Empreinte MD5 du fichier, utilisee pour detecter les doublons exacts.",
+      "duplicate_exact": "Indique si l'image est un doublon exact (meme MD5) d'une autre.",
+      "leakage_risk": "Indique un risque de fuite : image identique presente dans plusieurs partitions.",
+      "phash": "Empreinte perceptuelle (pHash), utilisee pour reperer les quasi-doublons.",
+      "split": "Partition de l'image : train, val ou test (stratifiee, seed 2026).",
+      "label": "Identifiant technique de la classe (17 classes).",
+      "class_id": "Numero de la classe, de 0 a 16.",
+      "display_fr": "Libelle francais de la classe, affiche dans l'interface."
+    }
+  },
+  "01_data/processed/features_v1.parquet": {
+    "description": "Descripteurs de couleur (moyennes, ecarts-types RGB/HSV, histogrammes) par image, pour les baselines.",
+    "owner": "Souleymane Soumahoro",
+    "steward": "Souleymane Soumahoro",
+    "columns": {
+      "filepath_rel": "Chemin relatif de l'image : cle de jointure avec les features et les embeddings."
+    },
+    "column_groups": [
+      {
+        "pattern": "rgb_(mean|std)_[rgb]",
+        "description": "Moyenne ou ecart-type d'un canal rouge, vert ou bleu de l'image."
+      },
+      {
+        "pattern": "hsv_(mean|std)_[hsv]",
+        "description": "Moyenne ou ecart-type d'un canal teinte, saturation ou valeur (HSV)."
+      },
+      {
+        "pattern": "[hsv]_hist_\\d+",
+        "description": "Case d'un histogramme de teinte (h), saturation (s) ou valeur (v)."
+      }
+    ]
+  },
+  "01_data/processed/features_v1_test.parquet": {
+    "description": "Petit echantillon (200 lignes) des descripteurs, pour tests rapides.",
+    "owner": "Souleymane Soumahoro",
+    "steward": "Souleymane Soumahoro",
+    "columns": {
+      "filepath_rel": "Chemin relatif de l'image : cle de jointure avec les features et les embeddings."
+    },
+    "column_groups": [
+      {
+        "pattern": "rgb_(mean|std)_[rgb]",
+        "description": "Moyenne ou ecart-type d'un canal rouge, vert ou bleu de l'image."
+      },
+      {
+        "pattern": "hsv_(mean|std)_[hsv]",
+        "description": "Moyenne ou ecart-type d'un canal teinte, saturation ou valeur (HSV)."
+      },
+      {
+        "pattern": "[hsv]_hist_\\d+",
+        "description": "Case d'un histogramme de teinte (h), saturation (s) ou valeur (v)."
+      }
+    ]
+  },
+  "01_data/processed/embeddings_mobilenetv2_v1.parquet": {
+    "description": "Embeddings 1280 dimensions extraits par MobileNetV2 gele, une ligne par image.",
+    "owner": "Souleymane Soumahoro",
+    "steward": "Souleymane Soumahoro",
+    "columns": {
+      "filepath_rel": "Chemin relatif de l'image : cle de jointure avec les features et les embeddings."
+    },
+    "column_groups": [
+      {
+        "pattern": "e_\\d+",
+        "description": "Dimension de l'embedding MobileNetV2 (1280 dimensions, e_0 a e_1279)."
+      }
+    ]
+  },
+  "01_data/processed/embeddings_mobilenetv2_v1_test.parquet": {
+    "description": "Petit echantillon (64 lignes) des embeddings, pour tests rapides.",
+    "owner": "Souleymane Soumahoro",
+    "steward": "Souleymane Soumahoro",
+    "columns": {
+      "filepath_rel": "Chemin relatif de l'image : cle de jointure avec les features et les embeddings."
+    },
+    "column_groups": [
+      {
+        "pattern": "e_\\d+",
+        "description": "Dimension de l'embedding MobileNetV2 (1280 dimensions, e_0 a e_1279)."
+      }
+    ]
+  }
+}
