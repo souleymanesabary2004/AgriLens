@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8"><title>AgriLens - liens de demo</title>
+<style>
+body{font-family:Segoe UI,Arial,sans-serif;max-width:760px;margin:30px auto;padding:0 16px;color:#1f2933}
+h1{font-size:22px} h2{font-size:16px;margin-top:26px;border-bottom:1px solid #d5dbe1;padding-bottom:4px}
+a{display:block;margin:6px 0;padding:9px 12px;background:#f1f5f9;border-radius:6px;text-decoration:none;color:#0b5cad}
+a:hover{background:#dbeafe} small{color:#52606d;display:block;margin-left:2px}
+.note{background:#fff7e0;padding:10px 12px;border-radius:6px;font-size:14px}
+</style></head><body>
+<h1>AgriLens - liens de demonstration</h1>
+<p class="note">Avant de cliquer : l'API doit tourner (<code>uvicorn main:app --app-dir 08_api --port 8000</code>).
+Si une page est inaccessible, l'API n'est pas lancee.</p>
+
+<h2>1. Vue d'ensemble</h2>
+<a href="http://127.0.0.1:8000/docs" target="_blank">Swagger : toutes les routes (page principale de la demo)</a>
+<a href="http://127.0.0.1:8000/api/v1/catalog/summary" target="_blank">Resume du catalogue (15 jeux, couverture 0.989)</a>
+<a href="http://127.0.0.1:8000/api/v1/catalog" target="_blank">Liste des jeux de donnees</a>
+<a href="http://127.0.0.1:8000/api/v1/catalog?layer=gold" target="_blank">Seulement la couche Gold</a>
+<a href="http://127.0.0.1:8000/api/v1/catalog?layer=silver" target="_blank">Seulement la couche Silver</a>
+<a href="http://127.0.0.1:8000/api/v1/catalog?layer=bronze" target="_blank">Seulement la couche Bronze</a>
+
+<h2>2. Fiche d'un jeu de donnees</h2>
+<a href="http://127.0.0.1:8000/api/v1/catalog/gold_dataset" target="_blank">gold_dataset (Gold, 26 397 lignes, 23 colonnes)</a>
+<a href="http://127.0.0.1:8000/api/v1/catalog/inventory_clean" target="_blank">inventory_clean (Silver)</a>
+<a href="http://127.0.0.1:8000/api/v1/catalog/bronze.inventory" target="_blank">bronze.inventory (Bronze)</a>
+<a href="http://127.0.0.1:8000/api/v1/catalog/split_manifest_v2" target="_blank">split_manifest_v2 (manifeste de reference)</a>
+<a href="http://127.0.0.1:8000/api/v1/catalog/embeddings_mobilenetv2_v1" target="_blank">embeddings_mobilenetv2_v1 (1280 dimensions)</a>
+<a href="http://127.0.0.1:8000/api/v1/catalog/class_mapping" target="_blank">class_mapping (les 17 classes)</a>
+
+<h2>3. Lineage et analyse d'impact</h2>
+<a href="http://127.0.0.1:8000/api/v1/lineage" target="_blank">Graphe complet (JSON)</a>
+<a href="http://127.0.0.1:8000/api/v1/lineage?format=mermaid" target="_blank">Graphe en texte Mermaid</a>
+<a href="http://127.0.0.1:8000/api/v1/lineage/inventory_clean?direction=downstream" target="_blank">Qu'est-ce qui depend de inventory_clean ? (en aval)</a>
+<a href="http://127.0.0.1:8000/api/v1/lineage/split_manifest_v2?direction=downstream" target="_blank">Qu'est-ce qui depend de split_manifest_v2 ? (en aval)</a>
+<a href="http://127.0.0.1:8000/api/v1/lineage/mobilenetv2_frozen_head?direction=upstream" target="_blank">D'ou vient le modele ? (en amont)</a>
+
+<h2>4. Autres outils de la demo</h2>
+<a href="http://127.0.0.1:5000/#/experiments/2/runs" target="_blank">MLflow : runs (vue Model training)</a>
+<a href="http://localhost:8501" target="_blank">Streamlit (interface AgriLens)</a>
+<small>Si MLflow ou Streamlit ne s'ouvrent pas, verifier qu'ils sont lances (lancer_demo.bat).</small>
+</body></html>
