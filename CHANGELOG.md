@@ -9,6 +9,13 @@ Format : Keep a Changelog. Versions : tags git (v1.0, puis v2-p0 à v2-p8, puis 
 - P0.1 : mesure de la machine (16 Go de RAM, CPU 4 coeurs, pas de GPU CUDA).
 - P0.1b : nettoyage du disque (de 16 Go à 69 Go libres).
 - P0.3 : branche main renommée depuis github-clean ; branche develop créée.
+- P0.4 : CHANGELOG.
+- P0.5 : gel des dependances de la v1 (requirements-v1.txt, 275 paquets) et requirements-v2.txt.
+- P0.6 : ruff, pre-commit, detect-private-key, gitleaks ; 23 corrections de style, 62 tests verts.
+- P0.7 : CI GitHub Actions (ruff et pytest sur Ubuntu, Python 3.11), requirements-ci.txt, marqueur pytest data.
+- P0.8 : structure v2 (paquets genai, agents, vision, monitoring, scale) et .gitignore complete.
+- P0.9 : modele v1 (104 Ko) versionne par exception dans .gitignore.
+- P0.10 : regle du jeu de test v2 (second verrou prevu en P3.9).
 
 ### Modifié
 - P0.2 : .gitignore durci (secrets, poids de modèles, données personnelles).
