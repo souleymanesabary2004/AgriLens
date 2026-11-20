@@ -58,3 +58,6 @@ demo_images/
 
 # Captures et brouillons LinkedIn (jamais sur GitHub)
 linkedin/
+
+# Exception : modele de la v1 (104 Ko), versionne dans git
+!models/head_mobilenetv2_v1.pt
