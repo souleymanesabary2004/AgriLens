@@ -11,3 +11,20 @@ package-dir = {"" = "src"}
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src"]
+exclude = ["notebooks", "02_eda"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+ignore = ["E501"]
+
+[tool.ruff.lint.per-file-ignores]
+"scripts/eval_rag.py" = ["E702"]
+"scripts/evaluate_test.py" = ["E702"]
+"scripts/train_baselines.py" = ["E702"]
+"scripts/train_head.py" = ["E702"]
+"src/agrilens/lineage.py" = ["E702", "E731"]
