@@ -1,6 +1,6 @@
 from pathlib import Path
-import pandas as pd
 
+import pandas as pd
 
 MANIFEST_PATH = Path(
     "01_data/metadata/split_manifest_v2.csv"

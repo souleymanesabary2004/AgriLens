@@ -3,9 +3,13 @@ scripts/build_features.py - S2.3 : calcule les 75 features de toutes les images 
 Lancer depuis la racine du projet :  python scripts/build_features.py
 (test rapide sur 200 images :        python scripts/build_features.py --n 200)
 """
-import argparse, os, time
+import argparse
+import os
+import time
+
 import pandas as pd
 from joblib import Parallel, delayed
+
 from agrilens.features import extract_features
 
 p = argparse.ArgumentParser()

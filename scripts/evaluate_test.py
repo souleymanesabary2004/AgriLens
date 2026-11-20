@@ -23,13 +23,19 @@ import sys
 import time
 
 import matplotlib
+
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import torch
-from sklearn.metrics import (accuracy_score, balanced_accuracy_score, classification_report,
-                             confusion_matrix, f1_score)
+from sklearn.metrics import (
+    accuracy_score,
+    balanced_accuracy_score,
+    classification_report,
+    confusion_matrix,
+    f1_score,
+)
 
 
 def sha256(path):
@@ -119,7 +125,7 @@ def main():
         base = tab.iloc[0]
         print(f"Validation : {len(val)} images (le test n'est pas lu)")
         print(f"Sans abstention : accuracy = {base['accuracy_acceptees']:.4f}, macro-F1 = {base['macro_f1_acceptees']:.4f}")
-        print(f"\nCompromis (extraits) :")
+        print("\nCompromis (extraits) :")
         print(tab[tab["seuil"].isin([0.0, 0.5, 0.7, 0.8, 0.9, 0.95, 0.99])][
             ["seuil", "couverture", "accuracy_acceptees", "images_ecartees", "part_erreurs_evitees"]
         ].round(4).to_string(index=False))

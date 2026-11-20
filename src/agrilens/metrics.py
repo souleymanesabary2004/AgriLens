@@ -1,13 +1,12 @@
+import matplotlib.pyplot as plt
 from sklearn.metrics import (
     accuracy_score,
+    balanced_accuracy_score,
+    confusion_matrix,
+    f1_score,
     precision_score,
     recall_score,
-    f1_score,
-    confusion_matrix,
-    balanced_accuracy_score,
 )
-
-import matplotlib.pyplot as plt
 
 
 def evaluate_classification(y_true, y_pred):

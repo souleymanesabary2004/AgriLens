@@ -11,16 +11,28 @@ Règles du protocole S2 respectées :
 Lancer depuis la racine du projet :
     python scripts/train_baselines.py
 """
-import argparse, hashlib, json, os, subprocess, time
+import argparse
+import hashlib
+import json
+import os
+import subprocess
+import time
+
+import matplotlib
 import numpy as np
 import pandas as pd
-import matplotlib
+
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import (accuracy_score, balanced_accuracy_score, confusion_matrix,
-                             f1_score, classification_report)
+from sklearn.metrics import (
+    accuracy_score,
+    balanced_accuracy_score,
+    classification_report,
+    confusion_matrix,
+    f1_score,
+)
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 

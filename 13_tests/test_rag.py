@@ -3,9 +3,9 @@ from pathlib import Path
 
 import pytest
 from fastapi.testclient import TestClient
-
-from agrilens.rag import Retriever, tokenize, REFUSAL
 from main import create_app
+
+from agrilens.rag import REFUSAL, Retriever, tokenize
 
 CORPUS = Path(__file__).resolve().parents[1] / "07_rag_genai/corpus"
 pytestmark = pytest.mark.skipif(not CORPUS.exists(), reason="corpus absent")

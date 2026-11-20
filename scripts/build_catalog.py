@@ -12,8 +12,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
-from agrilens import catalog as cat      # noqa: E402
-from agrilens import lineage as lin      # noqa: E402
+from agrilens import catalog as cat  # noqa: E402
+from agrilens import lineage as lin  # noqa: E402
 
 
 def main():

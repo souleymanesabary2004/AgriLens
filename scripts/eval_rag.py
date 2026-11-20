@@ -10,12 +10,14 @@ Regle (fixee AVANT de regarder les resultats, comme pour l'abstention du modele 
 Limite assumee : questions ecrites par nous, 30 au total : c'est un controle de sante, pas un benchmark.
 Usage : python scripts/eval_rag.py [--write-threshold]
 """
-import argparse, json, sys
+import argparse
+import json
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
-from agrilens.rag import Retriever, _DOSE, _strip_accents  # noqa: E402
+from agrilens.rag import Retriever  # noqa: E402
 
 
 def evaluate(r: Retriever, qs, threshold):

@@ -23,13 +23,19 @@ import subprocess
 import time
 
 import matplotlib
+
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import torch
-from sklearn.metrics import (accuracy_score, balanced_accuracy_score, classification_report,
-                             confusion_matrix, f1_score)
+from sklearn.metrics import (
+    accuracy_score,
+    balanced_accuracy_score,
+    classification_report,
+    confusion_matrix,
+    f1_score,
+)
 
 SEED = 2026
 

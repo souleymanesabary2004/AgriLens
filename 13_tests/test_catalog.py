@@ -2,10 +2,10 @@
 import pandas as pd
 import pytest
 from fastapi.testclient import TestClient
+from main import create_app
 
 from agrilens import catalog as cat
 from agrilens import lineage as lin
-from main import create_app
 
 
 @pytest.fixture()

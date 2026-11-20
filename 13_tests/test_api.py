@@ -1,11 +1,10 @@
 """Tests de l'API avec un FAUX modele (instantane) : on teste le service, pas les predictions."""
 import io
 
+import main
 import pytest
 from fastapi.testclient import TestClient
 from PIL import Image
-
-import main
 
 
 class FakePredictor:
