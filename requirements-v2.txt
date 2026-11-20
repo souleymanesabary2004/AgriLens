@@ -1,0 +1,1 @@
+# Bibliotheques ajoutees par la v2, une ligne par paquet avec sa version
