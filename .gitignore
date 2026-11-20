@@ -47,3 +47,14 @@ mlruns/
 
 # Images de demo
 demo_images/
+# Index et bases generes (regenerables)
+07_rag_genai/index/
+17_agents/agent.db
+17_agents/agent.db
+12_monitoring/drift.html
+12_monitoring/alerts.jsonl
+*.onnx
+*.duckdb
+
+# Captures et brouillons LinkedIn (jamais sur GitHub)
+linkedin/
