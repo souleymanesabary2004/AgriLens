@@ -4,6 +4,7 @@ titre: Alternariose de la tomate (early blight)
 culture: Tomate
 agent: Alternaria spp. (A. solani / A. linariae), champignon
 classe_modele: Tomato___Early_blight
+label: tomato__early_blight
 date_consultation: 15 novembre 2026
 ---
 # Alternariose de la tomate (early blight)

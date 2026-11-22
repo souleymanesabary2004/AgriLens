@@ -4,6 +4,7 @@ titre: Corynesporiose de la tomate (target spot)
 culture: Tomate
 agent: Corynespora cassiicola, champignon
 classe_modele: Tomato___Target_Spot
+label: tomato__target_spot
 date_consultation: 15 novembre 2026
 ---
 # Corynesporiose de la tomate (target spot)

@@ -4,6 +4,7 @@ titre: Tache bactérienne de la tomate (bacterial spot)
 culture: Tomate
 agent: Bactéries du genre Xanthomonas (plusieurs espèces)
 classe_modele: Tomato___Bacterial_spot
+label: tomato__bacterial_spot
 date_consultation: 15 novembre 2026
 ---
 # Tache bactérienne de la tomate (bacterial spot)

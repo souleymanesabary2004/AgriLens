@@ -4,6 +4,7 @@ titre: Septoriose de la tomate (Septoria leaf spot)
 culture: Tomate
 agent: Septoria lycopersici, champignon
 classe_modele: Tomato___Septoria_leaf_spot
+label: tomato__septoria_leaf_spot
 date_consultation: 15 novembre 2026
 ---
 # Septoriose de la tomate (Septoria leaf spot)

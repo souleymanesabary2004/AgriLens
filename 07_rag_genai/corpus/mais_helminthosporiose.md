@@ -4,6 +4,7 @@ titre: Helminthosporiose du nord du maïs (northern corn leaf blight)
 culture: Maïs
 agent: Exserohilum turcicum, champignon
 classe_modele: Corn___Northern_Leaf_Blight
+label: corn__northern_leaf_blight
 date_consultation: 15 novembre 2026
 ---
 # Helminthosporiose du nord du maïs (northern corn leaf blight)

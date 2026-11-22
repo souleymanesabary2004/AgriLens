@@ -4,6 +4,7 @@ titre: Rouille commune du maïs (common rust)
 culture: Maïs
 agent: Puccinia sorghi, champignon
 classe_modele: Corn___Common_rust
+label: corn__common_rust
 date_consultation: 15 novembre 2026
 ---
 # Rouille commune du maïs (common rust)

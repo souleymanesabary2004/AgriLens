@@ -4,6 +4,7 @@ titre: Mosaïque de la tomate (ToMV et autres tobamovirus)
 culture: Tomate
 agent: Tomato mosaic virus (ToMV), tobamovirus
 classe_modele: Tomato___Tomato_mosaic_virus
+label: tomato__tomato_mosaic_virus
 date_consultation: 15 novembre 2026
 ---
 # Mosaïque de la tomate (ToMV et autres tobamovirus)

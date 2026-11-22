@@ -4,6 +4,7 @@ titre: Cercosporiose du maïs (gray leaf spot)
 culture: Maïs
 agent: Cercospora zeae-maydis, champignon
 classe_modele: Corn___Cercospora_leaf_spot Gray_leaf_spot
+label: corn__cercospora_leaf_spot_gray_leaf_spot
 date_consultation: 15 novembre 2026
 ---
 # Cercosporiose du maïs (gray leaf spot)

@@ -4,6 +4,7 @@ titre: Acariens tétranyques de la tomate (spider mites)
 culture: Tomate
 agent: Tetranychus urticae (tétranyque à deux points), acarien
 classe_modele: Tomato___Spider_mites Two-spotted_spider_mite
+label: tomato__spider_mites_two_spotted_spider_mite
 date_consultation: 15 novembre 2026
 ---
 # Acariens tétranyques de la tomate (spider mites)

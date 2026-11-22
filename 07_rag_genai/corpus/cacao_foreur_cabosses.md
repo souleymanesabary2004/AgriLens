@@ -4,6 +4,7 @@ titre: Foreur des cabosses du cacaoyer (cocoa pod borer)
 culture: Cacaoyer
 agent: Conopomorpha cramerella, papillon de nuit (ravageur)
 classe_modele: pod_borer
+label: cacao__pod_borer
 date_consultation: 15 novembre 2026
 ---
 # Foreur des cabosses du cacaoyer (cocoa pod borer)

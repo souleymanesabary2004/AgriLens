@@ -4,6 +4,7 @@ titre: Mildiou de la tomate (late blight)
 culture: Tomate
 agent: Phytophthora infestans (organisme proche des champignons)
 classe_modele: Tomato___Late_blight
+label: tomato__late_blight
 date_consultation: 15 novembre 2026
 ---
 # Mildiou de la tomate (late blight)

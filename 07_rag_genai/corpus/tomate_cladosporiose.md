@@ -4,6 +4,7 @@ titre: Cladosporiose de la tomate (leaf mold)
 culture: Tomate
 agent: Passalora fulva (ex Cladosporium fulvum), champignon
 classe_modele: Tomato___Leaf_Mold
+label: tomato__leaf_mold
 date_consultation: 15 novembre 2026
 ---
 # Cladosporiose de la tomate (leaf mold)

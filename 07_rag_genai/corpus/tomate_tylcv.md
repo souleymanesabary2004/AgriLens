@@ -4,6 +4,7 @@ titre: Virus de l'enroulement jaune en cuillère de la tomate (TYLCV)
 culture: Tomate
 agent: Tomato yellow leaf curl virus, transmis par l'aleurode Bemisia tabaci
 classe_modele: Tomato___Tomato_Yellow_Leaf_Curl_Virus
+label: tomato__tomato_yellow_leaf_curl_virus
 date_consultation: 15 novembre 2026
 ---
 # Virus de l'enroulement jaune en cuillère de la tomate (TYLCV)

@@ -4,6 +4,7 @@ titre: Pourriture brune des cabosses du cacaoyer (black pod rot)
 culture: Cacaoyer
 agent: Phytophthora palmivora (et autres Phytophthora), organisme proche des champignons
 classe_modele: black_pod_rot
+label: cacao__black_pod_rot
 date_consultation: 15 novembre 2026
 ---
 # Pourriture brune des cabosses du cacaoyer (black pod rot)
