@@ -20,8 +20,8 @@ def test_tokenize_enleve_accents_pluriels_et_mots_vides():
     assert tokenize("Les taches brunes de la tomate") == ["tache", "brune", "tomate"]
 
 
-def test_corpus_charge_14_fiches(r):
-    assert len({c.doc_id for c in r.chunks}) == 14
+def test_corpus_charge_17_fiches(r):
+    assert len({c.doc_id for c in r.chunks}) == 17
 
 
 def test_question_dans_le_corpus_trouve_la_bonne_fiche(r):

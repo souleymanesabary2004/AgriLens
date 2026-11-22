@@ -34,6 +34,6 @@ date_consultation: 15 novembre 2026
 - Information générale reformulée à partir de sources d'extension agricole, à titre indicatif : prototype pédagogique, ne remplace pas l'avis d'un agronome ou d'un service agricole local.
 
 ## Sources (consultées le 15 novembre 2026)
-- UF/IFAS, PP360, Tobamoviruses of tomato : https://ask.ifas.ufl.edu/publication/PP360/pdf
+- UF/IFAS, PP360, Tomato Brown Rugose Fruit Virus (ToBRFV): A Potential Threat for Tomato Production in Florida : https://edis.ifas.ufl.edu/publication/PP360/pdf
 - University of Kentucky Plant Pathology, PPFS-GH-08, Tobamoviruses in greenhouse production : https://plantpathology.ca.uky.edu/files/ppfs-gh-08.pdf
 - UC IPM, Tomato pest management guidelines, Tobacco mosaic : https://ipm.ucanr.edu/PMG/r783102711.html

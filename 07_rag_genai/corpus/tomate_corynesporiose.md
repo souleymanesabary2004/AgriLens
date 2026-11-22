@@ -36,5 +36,5 @@ date_consultation: 15 novembre 2026
 - Information générale reformulée à partir de sources d'extension agricole, à titre indicatif : prototype pédagogique, ne remplace pas l'avis d'un agronome ou d'un service agricole local.
 
 ## Sources (consultées le 15 novembre 2026)
-- UF/IFAS, PP351, Target Spot of Tomato : https://ask.ifas.ufl.edu/publication/PP351/pdf
+- UF/IFAS, PP351, Target Spot of Tomato in Florida : https://edis.ifas.ufl.edu/publication/PP351/pdf
 - INRAE Ephytia, Symptoms on tomato (Corynespora cassiicola) : https://ephytia.inrae.fr/en/C/22970/Tropileg-Symptoms-on-tomato

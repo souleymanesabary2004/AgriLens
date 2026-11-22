@@ -36,5 +36,5 @@ date_consultation: 15 novembre 2026
 - Information générale reformulée à partir de sources d'extension agricole, à titre indicatif : prototype pédagogique, ne remplace pas l'avis d'un agronome ou d'un service agricole local.
 
 ## Sources (consultées le 15 novembre 2026)
-- UF/IFAS, IN1430, Tomato yellow leaf curl virus : https://ask.ifas.ufl.edu/publication/IN1430
+- UF/IFAS, ENY2111 (ancien IN1430), Managing Bemisia tabaci MEAM1 and Tomato yellow leaf curl virus in Florida Tomato : https://ask.ifas.ufl.edu/publication/IN1430
 - NC State Extension, Tomato yellow leaf curl virus : https://content.ces.ncsu.edu/tomato-yellow-leaf-curl-virus
